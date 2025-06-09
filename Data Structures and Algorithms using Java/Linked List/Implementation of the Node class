@@ -1,0 +1,33 @@
+A node can be represented by creating a class.
+
+The class can have two attributes
+
+data - for storing the data
+next - for storing the link to the next node
+
+public class Node {	
+	String data;
+	Node next;
+}
+-------------------------------
+Implementation of the Node class :-
+public class Node {
+	private String data;
+	private Node next;
+	public Node(String data){
+		this.data=data;
+	}
+	public void setData(String data){
+		this.data = data;
+	}
+	public void setNext(Node node){
+		this.next = node;
+	}
+	public String getData(){
+		return this.data;
+	}
+	public Node getNext(){
+		return this.next;
+	}
+}
+
