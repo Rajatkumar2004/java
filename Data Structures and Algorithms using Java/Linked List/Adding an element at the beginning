@@ -1,0 +1,82 @@
+public class Tester {
+
+    // Node class represents each element in the linked list
+    static class Node {
+        private String data;
+        private Node next;
+
+        public Node(String data) {
+            this.data = data;
+            this.next = null;
+        }
+
+        public void setData(String data) {
+            this.data = data;
+        }
+
+        public void setNext(Node node) {
+            this.next = node;
+        }
+
+        public String getData() {
+            return this.data;
+        }
+
+        public Node getNext() {
+            return this.next;
+        }
+    }
+
+    // LinkedList class for managing the list
+    static class LinkedList {
+
+        private Node head;
+        private Node tail;
+
+        public Node getHead() {
+            return this.head;
+        }
+
+        public Node getTail() {
+            return this.tail;
+        }
+
+        // Add a node at the end of the list
+        public void addAtEnd(String data) {
+            Node node = new Node(data);
+
+            if (this.head == null) {
+                this.head = this.tail = node;
+            } else {
+                this.tail.setNext(node);
+                this.tail = node;
+            }
+        }
+
+        // Add a node at the beginning of the list
+        public void addAtBeginning(String data) {
+            Node node = new Node(data);
+
+            if (this.head == null) {
+                this.head = this.tail = node;
+            } else {
+                node.setNext(this.head);
+                this.head = node;
+            }
+        }
+    }
+
+    // Main method to test the LinkedList
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        list.addAtEnd("Milan");
+        list.addAtEnd("Venice");
+        list.addAtEnd("Munich");
+        list.addAtBeginning("Nice");
+
+        System.out.println("Linked List updated successfully.");
+    }
+}
+sol:-
+Linked List updated successfully.
