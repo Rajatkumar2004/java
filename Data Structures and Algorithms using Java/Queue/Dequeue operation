@@ -1,0 +1,107 @@
+class Queue {
+
+	private int front;
+	private int rear;
+	private int maxSize;
+	private String arr[];
+
+	Queue(int maxSize) {
+		this.front = 0;
+		this.rear = -1;
+		this.maxSize = maxSize;
+		this.arr = new String[maxSize];
+	}
+
+	public boolean isFull() {
+		return rear == maxSize - 1;
+	}
+
+	public boolean isEmpty() {
+		return front > rear;
+	}
+
+	public boolean enqueue(String data) {
+		if (isFull()) {
+			return false;
+		} else {
+			arr[++rear] = data;
+			return true;
+		}
+	}
+
+	public String dequeue() {
+		if (isEmpty()) {
+			return null;
+		} else {
+			return arr[front++];
+		}
+	}
+
+	public void display() {
+		if (isEmpty()) {
+			System.out.println("Queue is empty!");
+		} else {
+			System.out.println("Displaying queue elements");
+			for (int index = front; index <= rear; index++) {
+				System.out.println(arr[index]);
+			}
+		}
+	}
+}
+
+class Tester {
+
+	public static void main(String[] args) {
+
+		Queue queue = new Queue(5);
+		System.out.println("Queue created.\n");
+
+		queue.enqueue("Joe");
+		queue.enqueue("Jack");
+		queue.enqueue("Eva");
+		queue.enqueue("Mia");
+		queue.enqueue("Luke");
+
+		queue.display();
+
+		System.out.println("\nDequeuing two elements...");
+		System.out.println("Dequeued: " + queue.dequeue());
+		System.out.println("Dequeued: " + queue.dequeue());
+
+		queue.display();
+
+		System.out.println();
+
+		if (queue.enqueue("Emma"))
+			System.out.println("The element is enqueued to the queue!\n");
+		else
+			System.out.println("Queue is full!\n");
+
+		queue.display();
+	}
+}
+output:-
+Queue created.
+
+Displaying queue elements
+Joe
+Jack
+Eva
+Mia
+Luke
+
+Dequeuing two elements...
+Dequeued: Joe
+Dequeued: Jack
+Displaying queue elements
+Eva
+Mia
+Luke
+
+The element is enqueued to the queue!
+
+Displaying queue elements
+Eva
+Mia
+Luke
+Emma
