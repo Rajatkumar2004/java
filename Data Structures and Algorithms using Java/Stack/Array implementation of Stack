@@ -1,9 +1,0 @@
-class Stack {
-	private int top; 
-	private int maxSize; 
-	private int[] arr;
-	Stack(int maxSize) {
-		this.top = -1; 
-		this.maxSize = maxSize;
-		arr = new int[maxSize]; 
-	}
